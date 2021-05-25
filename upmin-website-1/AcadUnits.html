@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Academic Units</title>
+    <link rel="stylesheet" type="text/css" href="Resources/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $("#colleges").selectmenu();
+            $("#colleges").selectmenu({
+                change: function(event, ui) {
+                    if ($("#colleges").val() == "HSS") {
+                        window.location.replace("HSS.html");
+                    } else if ($("#colleges").val() == "SM") {
+                        window.location.replace("SciMath.html");
+                    } else {
+                        window.location.replace("Management.html");
+                    }
+
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <img class="center" src="Resources/logo.png" alt="Logo">
+    <div class="navbar">
+        <a href="Home.html">Home</a>
+        <a class="active" href="AcadUnits.html">Academic Units</a>
+        <a href="AcadPrograms.html">Academic Programs</a>
+        <a href="Signup.html">Sign-up</a>
+    </div>
+
+    <div>
+
+        <form action="#">
+
+            <fieldset>
+                <label for="colleges">Select a college/school</label>
+                <select name="colleges" id="colleges">
+                    <option disabled selected>Please pick one</option>
+                  <option value="HSS">HUMANITIES & SOCIAL SCIENCES</option>
+                  <option value="SM">SCIENCE & MATHEMATICS</option>
+                  <option value="SOM">SCHOOL OF MANAGEMENT</option>
+                </select>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign-up</title>
+    <link rel="stylesheet" type="text/css" href="Resources/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            var prov = [
+                'Agusan del Norte',
+                'Agusan del Sur',
+                'Bukidnon',
+                'Compostela Valley',
+                'Cotabato',
+                'Davao del Norte',
+                'Davao del Sur',
+                'Davao Occidental',
+                'Davao Oriental',
+                'Lanao del Norte',
+                'Lanao del Sur',
+                'Maguindanao',
+                'Misamis Occidental',
+                'Misamis Oriental',
+                'Sarangani',
+                'South Cotabato',
+                'Sultan Kudarat',
+                'Surigao del Norte',
+                'Surigao del Sur',
+                'Zamboanga del Norte',
+                'Zamboanga del Sur',
+                'Zamboanga Sibugay',
+                'Basilan',
+                'Camiguin',
+                'Dinagat Islands',
+                'Sulu',
+                'Tawi-Tawi',
+            ];
+            $("input[type='radio']").checkboxradio();
+            $("#datepicker").datepicker();
+            $("#provinces").autocomplete({
+                source: prov
+            });
+            $("#year").spinner();
+            $("#submit").button();
+
+            $('#submit').click(function() {
+                var firstname = $('#fname').val();
+                var middlename = $('#mname').val();
+                var lastname = $('#lname').val();
+                var gender = $('input[type="radio"]').val();
+                var bday = $('#datepicker').val();
+                var province = $('#provinces').val();
+                var year = $('#year').val();
+
+                var userDetails = "First Name:" + firstname +
+                    "\nMiddle Name:" + middlename +
+                    "\nLast Name:" + lastname +
+                    "\nGender Name:" + gender +
+                    "\nDate of Birth:" + bday +
+                    "\nProvince:" + province +
+                    "\nYear level:" + year;
+
+                var blob = new Blob([userDetails], {
+                    type: "application/json;utf - 8"
+                })
+
+                var userLink = document.createElement('a');
+                userLink.setAttribute('download', firstname + '.txt');
+                userLink.setAttribute('href', window.URL.createObjectURL(blob));
+                userLink.click()
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <img class="center" src="Resources/logo.png" alt="Logo">
+    <div class="navbar">
+        <a href="Home.html">Home</a>
+        <a href="AcadUnits.html">Academic Units</a>
+        <a href="AcadPrograms.html">Academic Programs</a>
+        <a class="active" href="Signup.html">Sign-up</a>
+    </div>
+    <div class="signupsheet">
+        <form class="signup" action="#">
+            <fieldset>
+				<table>
+				<tr>
+				<td style="text-align:left;">
+				<label for="fname">First Name: </label>
+				</td>
+				<td style="text-align:left;">
+                <input type="text" name="fname" id="fname">
+				</td>
+                </tr>
+				<tr>
+				<td style="text-align:left;">
+                <label for="mname">Middle Name: </label>
+				</td>
+				<td style="text-align:left;">
+                <input type="text" name="mname" id="mname">
+				</td>
+                </tr>
+				<tr>
+				<td style="text-align:left;">
+                <label for="lname">Last Name: </label>
+				</td>
+				<td style="text-align:left;">
+                <span style="margin-right:5px;"><input type="text" name="lname" id="lname">
+				</td>
+                </tr>
+                <tr>
+				<td colspan='2'>
+                <fieldset>
+                    <legend>Select gender: </legend>
+                    <label for="male">Male</label>
+                    <input type="radio" value="Male" name="gender" id="male">
+                    <label for="female">Female</label>
+                    <input type="radio" value="Female" name="gender" id="female">
+                </fieldset>
+				</td>
+				</tr>
+				<tr>
+				<td style="text-align:left;">
+                Date of birth:
+				</td>
+				<td style="text-align:left;">
+				<input type="text " id="datepicker">
+				</td>
+				</tr>
+				<tr>
+				<td style="text-align:left;">
+                <label for="provinces">Province: </label>
+				</td>
+				<td style="text-align:left;">
+                <input id="provinces">
+				</td>
+				</tr>
+                <tr>
+				<td style="text-align:left;">
+                <label for="year">Year level in UPMin:</label>
+				</td>
+				<td style="text-align:left;">
+                <input id="year" min=1 max=4>
+				</td>
+				</tr>
+				<table>
+				
+                
+                <button id='submit'>Submit</button>
+            </fieldset>
+    </div>
+
+
+
+</body>
+
+</html>
