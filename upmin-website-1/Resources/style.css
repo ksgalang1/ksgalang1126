@@ -1,0 +1,62 @@
+body {
+    font-family: "helvetica"
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar {
+    margin-top: 10px;
+    margin-top: 10px;
+    background-color: rgb(100, 7, 7);
+    overflow: hidden;
+    position: relative;
+}
+
+.navbar a {
+    color: #f8f8f8;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #034b05;
+    color: white;
+}
+
+.navbar a.active {
+    background-color: #034b05;
+    color: white;
+}
+
+.contact-us {
+    text-align: center;
+}
+
+.signupsheet {
+    text-align: center;
+}
+
+.signup {
+    font-size: large;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.signup input {
+    height: 30px;
+    width: 250px;
+}
+
+.submit {
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+}
